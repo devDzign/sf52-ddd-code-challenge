@@ -2,8 +2,6 @@
 
 namespace App\UserInterface\ViewModel;
 
-
-
 use Chabour\Domain\Exemple\Model\Item;
 
 /**

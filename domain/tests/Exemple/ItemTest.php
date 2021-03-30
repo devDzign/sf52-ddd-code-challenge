@@ -28,7 +28,7 @@ class ItemTest extends TestCase
             }
         };
 
-        $presenter = new class() implements ItemPresenterInterface {
+        $presenter = new class () implements ItemPresenterInterface {
             public ItemResponse $response;
 
             public function present(ItemResponse $response): void

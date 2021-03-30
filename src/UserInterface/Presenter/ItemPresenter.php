@@ -2,9 +2,6 @@
 
 namespace App\UserInterface\Presenter;
 
-
-
-
 use App\UserInterface\ViewModel\ItemViewModel;
 use Chabour\Domain\Exemple\Presenter\ItemPresenterInterface;
 use Chabour\Domain\Exemple\Response\ItemResponse;

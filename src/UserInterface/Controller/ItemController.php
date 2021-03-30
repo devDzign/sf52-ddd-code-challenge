@@ -2,7 +2,6 @@
 
 namespace App\UserInterface\Controller;
 
-
 use Chabour\Domain\Exemple\Presenter\ItemPresenterInterface;
 use Chabour\Domain\Exemple\Request\ItemRequest;
 use Chabour\Domain\Exemple\UseCase\ItemUseCase;

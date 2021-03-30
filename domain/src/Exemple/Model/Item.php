@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Chabour\Domain\Exemple\Model;
-
 
 class Item
 {
