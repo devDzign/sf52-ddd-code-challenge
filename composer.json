@@ -48,6 +48,7 @@
     },
     "require-dev": {
         "dbrekelmans/bdi": "^0.3.0",
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
         "squizlabs/php_codesniffer": "*",
         "symfony/browser-kit": "^5.2",
         "symfony/css-selector": "^5.2",
@@ -57,7 +58,8 @@
         "symfony/phpunit-bridge": "^5.2",
         "symfony/stopwatch": "^5.2",
         "symfony/var-dumper": "^5.2",
-        "symfony/web-profiler-bundle": "^5.2"
+        "symfony/web-profiler-bundle": "^5.2",
+        "zenstruck/foundry": "^1.9"
     },
     "config": {
         "optimize-autoloader": true,
