@@ -17,9 +17,10 @@ class VisitorTest extends PantherTestCase
 
         $crawler = $client->request(Request::METHOD_GET, '/registration');
 
-        $form = $crawler->filter("form")->form([
-                                                   "registration[email]" => "email@email.com",
-                                                   "registration[pseudo]" => "pseudo",
+        $counter = random_int(1, 1000);
+        $form       = $crawler->filter("form")->form([
+                                                   "registration[email]" => "email{$counter}@email.com",
+                                                   "registration[pseudo]" => "pseudo" . $counter,
                                                    "registration[plainPassword][first]" => "password",
                                                    "registration[plainPassword][second]" => "password"
                                                ]);
@@ -27,7 +28,7 @@ class VisitorTest extends PantherTestCase
         $client->submit($form);
 
         $this->assertSelectorTextContains(
-            '.FlashBag',
+            '.flash-test',
             'Bienvenue sur Code Challenge ! Votre inscription a été effectuée avec succès !'
         );
     }
