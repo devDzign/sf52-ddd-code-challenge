@@ -16,7 +16,12 @@ services:
 
     App\Infrastructure\:
         resource: '../src/Infrastructure'
-        exclude: '../src/Infrastructure/Adapter'
+        exclude:
+            - '../src/Infrastructure/Adapter/Doctrine/Repository'
+    #            - '../src/DependencyInjection/'
+    #            - '../src/Entity/'
+    #            - '../src/Kernel.php'
+    #            - '../src/Tests/'
 
     App\UserInterface\:
         resource: '../src/UserInterface'

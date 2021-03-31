@@ -1,4 +1,6 @@
 {
+    "name": "mchab/code-challenge",
+    "description": "This is a community project, join us on twitch mchab. Code challenge is a simple project to practice on php and symfony.",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "dev",
@@ -7,6 +9,7 @@
         "php": ">=8.0",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "beberlei/assert": "^3.3",
         "composer/package-versions-deprecated": "1.11.99.1",
         "doctrine/annotations": "^1.0",
         "doctrine/doctrine-bundle": "^2.3",
@@ -36,6 +39,7 @@
         "symfony/string": "5.2.*",
         "symfony/translation": "5.2.*",
         "symfony/twig-bundle": "^5.2",
+        "symfony/uid": "5.2.*",
         "symfony/validator": "5.2.*",
         "symfony/web-link": "5.2.*",
         "symfony/yaml": "5.2.*",
@@ -43,7 +47,10 @@
         "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
+        "dama/doctrine-test-bundle": "^6.5",
         "dbrekelmans/bdi": "^0.3.0",
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
+        "squizlabs/php_codesniffer": "*",
         "symfony/browser-kit": "^5.2",
         "symfony/css-selector": "^5.2",
         "symfony/debug-bundle": "^5.2",
@@ -52,7 +59,8 @@
         "symfony/phpunit-bridge": "^5.2",
         "symfony/stopwatch": "^5.2",
         "symfony/var-dumper": "^5.2",
-        "symfony/web-profiler-bundle": "^5.2"
+        "symfony/web-profiler-bundle": "^5.2",
+        "zenstruck/foundry": "^1.9"
     },
     "config": {
         "optimize-autoloader": true,
@@ -79,6 +87,34 @@
         "symfony/polyfill-php72": "*"
     },
     "scripts": {
+        "database": [
+            "@database-dev",
+            "@database-panther",
+            "@database-test"
+        ],
+        "database-prod": [
+            "php bin/console doctrine:database:drop --if-exists --force --env=prod",
+            "php bin/console doctrine:database:create --env=prod",
+            "php bin/console doctrine:schema:update --force --env=prod"
+        ],
+        "database-panther": [
+            "php bin/console doctrine:database:drop --if-exists --force --env=panther",
+            "php bin/console doctrine:database:create --env=panther",
+            "php bin/console doctrine:schema:update --force --env=panther",
+            "php bin/console doctrine:fixtures:load -n --env=panther"
+        ],
+        "database-test": [
+            "php bin/console doctrine:database:drop --if-exists --force --env=test",
+            "php bin/console doctrine:database:create --env=test",
+            "php bin/console doctrine:schema:update --force --env=test",
+            "php bin/console doctrine:fixtures:load -n --env=test"
+        ],
+        "database-dev": [
+            "php bin/console doctrine:database:drop --if-exists --force",
+            "php bin/console doctrine:database:create",
+            "php bin/console doctrine:schema:update --force",
+            "php bin/console doctrine:fixtures:load -n"
+        ],
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
