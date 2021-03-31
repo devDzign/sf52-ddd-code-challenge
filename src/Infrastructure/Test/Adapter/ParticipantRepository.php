@@ -2,6 +2,9 @@
 
 namespace App\Infrastructure\Test\Adapter;
 
+use Chabour\Domain\Security\Gateway\ParticipantGateway;
+use Chabour\Domain\Security\Model\Participant;
+
 class ParticipantRepository implements ParticipantGateway
 {
     /**

@@ -31,6 +31,7 @@ class RegistrationController extends AbstractController
             );
 
             $registrationUseCase->execute($registrationsRequest, $registrationPresenter);
+            return $this->redirectToRoute('health');
         }
 
         return $this->render("registration/registration.html.twig", [
